@@ -4,7 +4,7 @@ Tagging a release on this repository will update the:
 
 - [Node.js SDK repo](https://github.com/fern-openai/open-ai-node)
 - [Java SDK repo](https://github.com/fern-openai/open-ai-openapi)
-- [OpenAPI spec repo](https://github.com/fern-openai/open-ai-openapi)
+- [OpenAPI spec repo](https://github.com/fern-openai/open-ai-java)
 - [Postman collection repo](https://github.com/fern-openai/open-ai-postman)
 - _More SDKs to come..._
 
