@@ -7,3 +7,14 @@ groups:
         output:
           location: local-file-system
           path: ../../generated/typescript
+  
+  publish:
+    generators:
+      - name: fernapi/fern-typescript-sdk
+        version: 0.2.0
+        output:
+          location: npm
+          package-name: '@fern-api/open-ai'
+          token: ${FERN_NPM_TOKEN}
+        github:
+          repository: fern-openai/open-ai-node
