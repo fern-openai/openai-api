@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: true
+  base-path: /edits
+  endpoints:
+    create:
+      path: ""
+      method: POST
+      display-name: Creates a new edit for the provided input, instruction, and parameters
+      request:
+        body: CreateEditRequest
+      response: CreateEditResponse
+
+types:
+  CreateEditRequest:
+    properties:
+      model:
+        docs: >-
+          ID of the model to use. You can use the [List
+          models](/docs/api-reference/models/list) API to see all of your
+          available models, or see our [Model overview](/docs/models/overview)
+          for descriptions of them.
+        type: string
+      input:
+        docs: The input text to use as a starting point for the edit.
+        type: optional<string>
+      instruction:
+        docs: The instruction that tells the model how to edit the prompt.
+        type: string
+      n:
+        docs: How many edits to generate for the input and instruction.
+        type: optional<integer>
+      temperature:
+        docs: >
+          What [sampling
+          temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277)
+          to use. Higher values means the model will take more risks. Try 0.9
+          for more creative applications, and 0 (argmax sampling) for ones with
+          a well-defined answer.
+          We generally recommend altering this or `top_p` but not both.
+        type: optional<double>
+      top_p:
+        docs: >
+          An alternative to sampling with temperature, called nucleus sampling,
+          where the model considers the results of the tokens with top_p
+          probability mass. So 0.1 means only the tokens comprising the top 10%
+          probability mass are considered.
+          We generally recommend altering this or `temperature` but not both.
+        type: optional<double>
+
+  CreateEditResponse:
+    properties:
+      object: string
+      created: integer
+      choices: list<EditChoice>
+      usage: EditUsage
+
+  EditChoice:
+    properties:
+      text: optional<string>
+      index: optional<integer>
+      logprobs: optional<commons.LogProbs>
+      finish_reason: optional<string>
+
+  EditUsage:
+    properties:
+      prompt_tokens: integer
+      completion_tokens: integer
+      total_tokens: integer

@@ -1,4 +1,20 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
 
 types:
-  id: string
+  OpenAIFile:
+    properties:
+      id: string
+      object: string
+      bytes: integer
+      created_at: integer
+      filename: string
+      purpose: string
+      status: optional<string>
+      status_details: optional<map<string, unknown>>
+
+  LogProbs:
+    properties:
+      tokens: optional<list<string>>
+      token_logprobs: optional<list<double>>
+      top_logprobs: optional<list<map<string, unknown>>>
+      text_offset: optional<list<integer>>

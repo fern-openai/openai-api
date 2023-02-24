@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: true
+  base-path: /models
+  endpoints:
+    list:
+      path: ""
+      method: GET
+      display-name: >-
+        Lists the currently available models, and provides basic information
+        about each one such as the owner and availability.
+      response: ListModelsResponse
+
+    retrieve:
+      path: /models/{model}
+      method: GET
+      display-name: >-
+        Retrieves a model instance, providing basic information about the model
+        such as the owner and permissioning.
+      path-parameters:
+        model:
+          docs: The ID of the model to use for this request
+          type: ModelId
+      response: Model
+
+    delete:
+      path: /models/{model}
+      method: DELETE
+      display-name: >-
+        Delete a fine-tuned model. You must have the Owner role in your
+        organization.
+      path-parameters:
+        model:
+          docs: The model to delete
+          type: ModelId
+      response: DeleteModelResponse
+
+types: 
+  ModelId: string
+
+  ListModelsResponse:
+    properties:
+      object: string
+      data: list<Model>
+
+  DeleteModelResponse:
+    properties:
+      id: string
+      object: string
+      deleted: boolean
+
+  Model:
+    properties:
+      id: string
+      object: string
+      created: integer
+      owned_by: string

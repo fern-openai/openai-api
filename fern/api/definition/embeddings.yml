@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: true
+  base-path: /embeddings
+  endpoints:
+    create:
+      path: ""
+      method: POST
+      display-name: Creates an embedding vector representing the input text.
+      request:
+        body: CreateEmbeddingRequest
+      response: CreateEmbeddingResponse
+
+types:
+  CreateEmbeddingRequest:
+    properties:
+      model:
+        docs: >-
+          ID of the model to use. You can use the [List
+          models](/docs/api-reference/models/list) API to see all of your
+          available models, or see our [Model overview](/docs/models/overview)
+          for descriptions of them.
+        type: string
+      user:
+        docs: >
+          A unique identifier representing your end-user, which can help OpenAI
+          to monitor and detect abuse. [Learn
+          more](/docs/guides/safety-best-practices/end-user-ids).
+        type: optional<string>
+
+  CreateEmbeddingResponse:
+    properties:
+      object: string
+      model: string
+      data: list<EmbedData>
+      usage: EmbedUsage
+
+  EmbedData:
+    properties:
+      index: integer
+      object: string
+      embedding: list<double>
+
+  EmbedUsage:
+    properties:
+      prompt_tokens: integer
+      total_tokens: integer

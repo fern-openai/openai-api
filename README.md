@@ -1,17 +1,17 @@
-# {Company} API
+# Open AI API
 
 Tagging a release on this repository will update the:
 
-- [Node.js SDK repo](https://github.com/fern-{company}/{company}-node)
-- [OpenAPI spec repo](https://github.com/fern-{company}/{company}-openapi)
-- [Postman collection repo](https://github.com/fern-{company}/{company}-postman)
+- [Node.js SDK repo](https://github.com/fern-openai/openai-node)
+- [OpenAPI spec repo](https://github.com/fern-openai/openai-openapi)
+- [Postman collection repo](https://github.com/fern-openai/openai-postman)
 - _More SDKs to come..._
 
 ## What is in this repository?
 
 This repository contains
 
-- {Company}'s Fern API Definition which lives in the [definition](./fern/api/definition/) folder
+- Open AI's Fern API Definition which lives in the [definition](./fern/api/definition/) folder
 - Generators (see [generators.yml](./fern/api/generators.yml))
 
 ## What is in the API Definition?
