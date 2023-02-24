@@ -18,3 +18,13 @@ groups:
           token: ${FERN_NPM_TOKEN}
         github:
           repository: fern-openai/open-ai-node
+      
+      - name: fernapi/fern-java-sdk
+        version: 0.0.134
+        output:
+          location: maven
+          coordinate: io.github.fern-api:open-ai
+          username: ${FERN_MAVEN_USERNAME}
+          password: ${FERN_MAVEN_TOKEN}
+        github:
+          repository: fern-openai/open-ai-java 
