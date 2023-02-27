@@ -29,12 +29,12 @@ types:
       question:
         docs: Question to get answered.
         type: string
-      examples:
-        docs: >-
-          List of (question, answer) pairs that will help steer the model
-          towards the tone and answer format you'd like. We recommend adding 2
-          to 3 examples.
-        type: list<list<string>>
+      # examples:
+      #   docs: >-
+      #     List of (question, answer) pairs that will help steer the model
+      #     towards the tone and answer format you'd like. We recommend adding 2
+      #     to 3 examples.
+      #   type: list<list<string>>
       examples_context:
         docs: >-
           A text snippet containing the contextual information used to generate
