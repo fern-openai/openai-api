@@ -29,12 +29,13 @@ types:
       question:
         docs: Question to get answered.
         type: string
-      # examples:
-      #   docs: >-
-      #     List of (question, answer) pairs that will help steer the model
-      #     towards the tone and answer format you'd like. We recommend adding 2
-      #     to 3 examples.
-      #   type: list<list<string>>
+      examples:
+        docs: >-
+          List of (question, answer) pairs that will help steer the model 
+          towards the tone and answer format you'd like. 
+          We recommend adding 2 to 3 examples.
+          Minimum of 1 item and maximum of 200 items.
+        type: list<list<ExampleItems>>
       examples_context:
         docs: >-
           A text snippet containing the contextual information used to generate
@@ -147,3 +148,22 @@ types:
     properties:
       document: optional<integer>
       text: optional<string>
+
+  ExampleItems: 
+    properties:
+      items: QuestionAnswer
+    examples: 
+      - name: Example 
+        value: 
+          items: 
+            - "'What is the capital of Canada?', 'Ottawa'"
+            - "'Which province is Ottawa in?', 'Ontario'"
+
+  QuestionAnswer: 
+    type: list<string> 
+    docs: Must be 2 items. 
+    examples:
+      - name: Example 
+        value:
+          - 'What is the capital of Canada?'
+          - 'Ottawa'
