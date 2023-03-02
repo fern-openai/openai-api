@@ -18,3 +18,21 @@ types:
       token_logprobs: optional<list<double>>
       top_logprobs: optional<list<map<string, unknown>>>
       text_offset: optional<list<integer>>
+
+  FileFormat:
+    enum:
+      - json
+      - text
+      - srt
+      - verbose_json
+      - vtt
+  
+  AudioFile: 
+    enum:
+      - mp3
+      - mp4
+      - mpeg
+      - mpga
+      - m4a
+      - wav
+      - webm

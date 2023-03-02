@@ -10,7 +10,7 @@ service:
     create:
       path: /generations
       method: POST
-      display-name: Creates an image given a prompt.
+      docs: Creates an image given a prompt.
       request:
         body: CreateImageRequest
       response: ImagesResponse
@@ -18,7 +18,7 @@ service:
     createImageEdit:
       path: /edits
       method: POST
-      display-name: >-
+      docs: >-
         Creates an edited or extended image given an original image and a
         prompt.
       response: ImagesResponse
@@ -26,7 +26,7 @@ service:
     createImageVariation:
       path: /variations
       method: POST
-      display-name: Creates a variation of a given image.
+      docs: Creates a variation of a given image.
       response: ImagesResponse
 
 types:
@@ -52,7 +52,7 @@ types:
         docs: >
           A unique identifier representing your end-user, which can help OpenAI
           to monitor and detect abuse. [Learn
-          more](/docs/guides/safety-best-practices/end-user-ids).
+          more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
         type: optional<string>
 
   Size:

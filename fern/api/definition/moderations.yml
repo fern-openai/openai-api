@@ -7,7 +7,7 @@ service:
     create:
       path: ""
       method: POST
-      display-name: Classifies if text violates OpenAI's Content Policy
+      docs: Classifies if text violates OpenAI's Content Policy
       request:
         body: CreateModerationRequest
       response: CreateModerationResponse

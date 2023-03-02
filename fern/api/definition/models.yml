@@ -10,7 +10,7 @@ service:
     list:
       path: ""
       method: GET
-      display-name: >-
+      docs: >-
         Lists the currently available models, and provides basic information
         about each one such as the owner and availability.
       response: ListModelsResponse
@@ -18,7 +18,7 @@ service:
     retrieve:
       path: /models/{model}
       method: GET
-      display-name: >-
+      docs: >-
         Retrieves a model instance, providing basic information about the model
         such as the owner and permissioning.
       path-parameters:
@@ -30,7 +30,7 @@ service:
     delete:
       path: /models/{model}
       method: DELETE
-      display-name: >-
+      docs: >-
         Delete a fine-tuned model. You must have the Owner role in your
         organization.
       path-parameters:
