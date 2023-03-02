@@ -10,13 +10,13 @@ service:
     list:
       path: ""
       method: GET
-      display-name: Returns a list of files that belong to the user's organization.
+      docs: Returns a list of files that belong to the user's organization.
       response: ListFilesResponse
 
     create:
       path: ""
       method: POST
-      display-name: >
+      docs: >
         Upload a file that contains document(s) to be used across various
         endpoints/features. Currently, the size of all the files uploaded by one
         organization can be up to 1 GB. Please contact us if you need to
@@ -26,7 +26,7 @@ service:
     retrieve:
       path: /{file_id}
       method: GET
-      display-name: Returns information about a specific file.
+      docs: Returns information about a specific file.
       path-parameters:
         file_id:
           docs: The ID of the file to use for this request
@@ -36,7 +36,7 @@ service:
     delete:
       path: /{file_id}
       method: DELETE
-      display-name: Delete a file.
+      docs: Delete a file.
       path-parameters:
         file_id:
           docs: The ID of the file to use for this request
@@ -46,7 +46,7 @@ service:
     download:
       path: /{file_id}/content
       method: GET
-      display-name: Returns the contents of the specified file
+      docs: Returns the contents of the specified file
       path-parameters:
         file_id:
           docs: The ID of the file to use for this request

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
 
-imports: 
-  commons: commons.yml 
+imports:
+  commons: commons.yml
 
 service:
   auth: true
@@ -10,7 +10,7 @@ service:
     list:
       path: ""
       method: GET
-      display-name: >-
+      docs: >-
         Lists the currently available (non-finetuned) models, and provides basic
         information about each one such as the owner and availability.
       response: ListEnginesResponse
@@ -18,7 +18,7 @@ service:
     retrieve:
       path: /{engine_id}
       method: GET
-      display-name: >-
+      docs: >-
         Retrieves a model instance, providing basic information about it such as
         the owner and availability.
       path-parameters:
@@ -31,7 +31,7 @@ service:
     create:
       path: /{engine_id}/search
       method: POST
-      display-name: >
+      docs: >
         The search endpoint computes similarity scores between provided query
         and documents. Documents can be passed directly to the API if there are
         no more than 200 of them.
@@ -100,7 +100,7 @@ types:
         docs: >
           A unique identifier representing your end-user, which can help OpenAI
           to monitor and detect abuse. [Learn
-          more](/docs/guides/safety-best-practices/end-user-ids).
+          more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
         type: optional<string>
 
   CreateSearchResponse:
