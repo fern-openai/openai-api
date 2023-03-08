@@ -16,7 +16,7 @@ service:
       response: ListModelsResponse
 
     retrieve:
-      path: /models/{model}
+      path: /{model}
       method: GET
       docs: >-
         Retrieves a model instance, providing basic information about the model
@@ -28,7 +28,7 @@ service:
       response: Model
 
     delete:
-      path: /models/{model}
+      path: /{model}
       method: DELETE
       docs: >-
         Delete a fine-tuned model. You must have the Owner role in your
@@ -39,7 +39,7 @@ service:
           type: ModelId
       response: DeleteModelResponse
 
-types: 
+types:
   ModelId: string
 
   ListModelsResponse:

@@ -26,8 +26,8 @@ types:
       - srt
       - verbose_json
       - vtt
-  
-  AudioFile: 
+
+  AudioFile:
     enum:
       - mp3
       - mp4
