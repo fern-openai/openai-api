@@ -4,3 +4,5 @@ environments:
   Production: https://api.openai.com/v1/
 default-environment: Production
 auth: bearer
+audiences: 
+  - stream

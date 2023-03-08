@@ -6,6 +6,8 @@ imports:
 service:
   auth: true
   base-path: /completions
+  audiences:
+    - stream
   endpoints:
     create:
       path: ""
@@ -132,6 +134,10 @@ service:
                 more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
               type: optional<string>
       response: CreateCompletionResponse
+      stream-condition: $request.stream
+      response-stream:
+        data: CreateCompletionResponse
+        terminator: "[DONE]"
 
 types:
   Prompt:
