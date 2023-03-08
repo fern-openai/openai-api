@@ -6,8 +6,6 @@ imports:
 service:
   auth: true
   base-path: /completions
-  audiences:
-    - stream
   endpoints:
     create:
       path: ""

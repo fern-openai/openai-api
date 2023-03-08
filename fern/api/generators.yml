@@ -1,11 +1,9 @@
 default-group: local
 groups:
   publish:
-    audiences: 
-      - stream
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.5.0-rc0-6-g80f89f98
+        version: 0.5.0-rc0-7-g34157ba1
         output:
           location: npm
           package-name: '@fern-api/openai'

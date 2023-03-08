@@ -54,8 +54,7 @@ service:
               type: file
             mask:
               docs: An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
-              #TODO: make optional
-              type: file
+              type: optional<file>
             prompt:
               docs: A text description of the desired image(s). The maximum length is 1000 characters.
               type: string
