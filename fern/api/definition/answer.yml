@@ -6,6 +6,8 @@ imports:
 service:
   auth: true
   base-path: /answers
+  audiences: 
+    - stream
   endpoints:
     create:
       path: ""
