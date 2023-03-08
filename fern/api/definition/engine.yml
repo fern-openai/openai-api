@@ -67,6 +67,7 @@ types:
     properties:
       object: string
       data: list<Engine>
+
   CreateSearchRequest:
     properties:
       query:

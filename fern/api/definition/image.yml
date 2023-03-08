@@ -1,0 +1,137 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.dev.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: true
+  base-path: /images
+  endpoints:
+    create:
+      path: /generations
+      method: POST
+      docs: Creates an image given a prompt.
+      request:
+        name: CreateImageRequest
+        body:
+          properties:
+            prompt:
+              docs: >-
+                A text description of the desired image(s). The maximum length is 1000
+                characters.
+              type: string
+            n:
+              docs: The number of images to generate. Must be between 1 and 10.
+              type: optional<integer>
+            size:
+              docs: >-
+                The size of the generated images.
+              type: optional<Size>
+            response_format:
+              docs: >-
+                The format in which the generated images are returned.
+              type: optional<ImageFormat>
+            user:
+              docs: >
+                A unique identifier representing your end-user, which can help OpenAI
+                to monitor and detect abuse. [Learn
+                more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
+              type: optional<string>
+      response: ImagesResponse
+
+    createEdit:
+      path: /edits
+      method: POST
+      docs: >-
+        Creates an edited or extended image given an original image and a
+        prompt.
+      request: 
+        name: CreateImageEditRequest
+        body: 
+          properties: 
+            image:
+              docs: The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
+              type: file
+            mask:
+              docs: An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
+              type: optional<file>
+            prompt:
+              docs: A text description of the desired image(s). The maximum length is 1000 characters.
+              type: string
+            n:
+              docs: The number of images to generate. Must be between 1 and 10.
+              type: optional<integer>
+            size:
+              docs: >-
+                The size of the generated images.
+              type: optional<Size>
+            response_format:
+              docs: >-
+                The format in which the generated images are returned.
+              type: optional<ImageFormat>
+            user:
+              docs: >
+                A unique identifier representing your end-user, which can help OpenAI
+                to monitor and detect abuse. [Learn
+                more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
+              type: optional<string>
+      response: ImagesResponse
+
+    createVariation:
+      path: /variations
+      method: POST
+      docs: Creates a variation of a given image.
+      request: 
+        name: CreateImageVariationRequest
+        body: 
+          properties: 
+            image:
+              docs: The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
+              type: file
+            n:
+              docs: The number of images to generate. Must be between 1 and 10.
+              type: optional<integer>
+            size:
+              docs: >-
+                The size of the generated images.
+              type: optional<Size>
+            response_format:
+              docs: >-
+                The format in which the generated images are returned.
+              type: optional<ImageFormat>
+            user:
+              docs: >
+                A unique identifier representing your end-user, which can help OpenAI
+                to monitor and detect abuse. [Learn
+                more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
+              type: optional<string>
+      response: ImagesResponse
+
+types:
+  Size:
+    docs: >-
+      The size of the generated images.
+    enum:
+      - value: 256x256
+        name: two_hundred_fifty_six
+      - value: 512x512
+        name: five_hundred_twelve
+      - value: 1024x1024
+        name: one_thousand_twenty_four
+
+  ImageFormat:
+    docs: >-
+      The format in which the generated images are returned.
+    enum:
+      - url
+      - b64_json
+
+  ImagesResponse:
+    properties:
+      created: integer
+      data: list<ImageData>
+
+  ImageData:
+    properties:
+      url: optional<string>
+      b64_json: optional<string>
