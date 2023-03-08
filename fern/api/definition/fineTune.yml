@@ -187,6 +187,10 @@ service:
               If set to false, only events generated so far will be returned.
             type: optional<boolean>
       response: ListFineTuneEventsResponse
+      response-stream:
+        data: FineTune
+        terminator: "[DONE]"
+      stream-condition: $query.stream
 
 types:
   FineTuneId: string

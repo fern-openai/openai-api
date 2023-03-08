@@ -3,10 +3,10 @@ groups:
   publish:
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.5.0-rc0-7-g34157ba1
+        version: 0.5.0-rc0-8-g5ccb8326
         output:
           location: npm
-          package-name: '@fern-api/openai'
+          package-name: "@fern-api/openai"
           token: ${FERN_NPM_TOKEN}
         github:
           repository: fern-openai/open-ai-node

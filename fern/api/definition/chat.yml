@@ -7,7 +7,7 @@ service:
   auth: true
   base-path: /chat
   endpoints:
-    create:
+    createCompletion:
       path: /completions
       method: POST
       docs: Creates a completion for the chat message
@@ -71,6 +71,10 @@ service:
                 more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
               type: optional<string>
       response: CreateChatCompletionResponse
+      response-stream:
+        data: CreateChatCompletionResponse
+        terminator: "[DONE]"
+      stream-condition: $request.stream
 
 types:
   ChatModel:
