@@ -26,6 +26,11 @@ service:
           docs: The ID of the model to use for this request
           type: ModelId
       response: Model
+      examples: 
+        - path-parameters:
+            model: "code-cushman-001"
+          response: 
+            body: $Model.Example1
 
     delete:
       path: /{model}
@@ -59,3 +64,10 @@ types:
       object: string
       created: integer
       owned_by: string
+    examples: 
+      - name: Example1
+        value: 
+          id:  "code-cushman-001"
+          object: "model"
+          created: 1232409340
+          owned_by: "openai"
