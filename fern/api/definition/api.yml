@@ -13,3 +13,7 @@ errors:
   - commons.UnauthorizedError
   - commons.RateLimitError
   - commons.InternalServerError
+headers:
+  OpenAI-Organization:
+    name: Organization
+    type: optional<string>
