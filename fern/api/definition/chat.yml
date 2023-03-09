@@ -129,7 +129,7 @@ types:
   ChatItemsDelta:
     properties:
       role: optional<AuthorRole>
-      conent: optional<string>
+      content: optional<string>
 
   ChatItems:
     properties:
