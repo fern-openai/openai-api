@@ -72,7 +72,7 @@ service:
               type: optional<string>
       response: CreateChatCompletionResponse
       response-stream:
-        data: CreateChatCompletionResponse
+        data: CreateChatCompletionResponseChunk
         terminator: "[DONE]"
       stream-condition: $request.stream
 
@@ -111,6 +111,25 @@ types:
       model: string
       choices: list<ChatItems>
       usage: optional<ChatUsage>
+
+  CreateChatCompletionResponseChunk:
+    properties:
+      id: string
+      object: string
+      created: integer
+      model: string
+      choices: list<ChatItemsChunk>
+
+  ChatItemsChunk:
+    properties:
+      delta: ChatItemsDelta
+      index: integer
+      finish_reason: optional<string>
+
+  ChatItemsDelta:
+    properties:
+      role: optional<AuthorRole>
+      conent: optional<string>
 
   ChatItems:
     properties:

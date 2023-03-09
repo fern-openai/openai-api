@@ -134,7 +134,7 @@ service:
       response: CreateCompletionResponse
       stream-condition: $request.stream
       response-stream:
-        data: CreateCompletionResponse
+        data: CreateCompletionResponseChunk
         terminator: "[DONE]"
 
 types:
@@ -164,7 +164,15 @@ types:
       created: integer
       model: string
       choices: list<CompletionChoice>
-      usage: optional<CompletionUsage>
+      usage: CompletionUsage
+
+  CreateCompletionResponseChunk:
+    properties:
+      id: string
+      object: string
+      created: integer
+      model: string
+      choices: list<CompletionChoice>
 
   CompletionChoice:
     properties:

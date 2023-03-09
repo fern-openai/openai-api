@@ -36,3 +36,38 @@ types:
       - m4a
       - wav
       - webm
+
+errors:
+  UnauthorizedError:
+    docs: |
+      There are three possible causes for this error:
+
+      **Cause:** Invalid Authentication
+      **Solution:** Ensure the correct [API key](https://platform.openai.com/account/api-keys) and requesting organization are being used.
+
+      **Cause:** The requesting API key is not correct.
+      **Solution:** Ensure the API key used is correct, clear your browser cache, or [generate a new one](https://platform.openai.com/account/api-keys).
+
+      **Cause:** Your account is not part of an organization.
+      **Solution:** Contact us to get added to a new organization or ask your organization manager to [invite you to an organization](https://platform.openai.com/account/members).
+    status-code: 401
+
+  RateLimitError:
+    docs: |
+      There are three possible causes for this error:
+
+      **Cause:** You are sending requests too quickly.
+      **Solution:** Pace your requests. Read the [Rate limit guide](https://platform.openai.com/docs/guides/rate-limits).
+
+      **Cause:** You have hit your maximum monthly spend (hard limit) which you can view in the [account billing section](https://platform.openai.com/account/billing/limits).
+      **Solution:** [Apply for a quota increase](https://platform.openai.com/forms/quota-increase).
+
+      **Cause:** Our servers are experiencing high traffic.
+      **Solution:** Please retry your requests after a brief wait.
+    status-code: 429
+
+  InternalServerError:
+    docs: |
+      **Cause:** Issue on our servers.
+      **Solution:** Retry your request after a brief wait and contact us if the issue persists. Check the [status page](https://status.openai.com/).
+    status-code: 500

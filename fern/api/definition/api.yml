@@ -1,6 +1,15 @@
+imports:
+  commons: commons.yml
+
 name: api
 display-name: OpenAI API
 environments:
   Production: https://api.openai.com/v1/
 default-environment: Production
 auth: bearer
+error-discrimination:
+  strategy: status-code
+errors:
+  - commons.UnauthorizedError
+  - commons.RateLimitError
+  - commons.InternalServerError
