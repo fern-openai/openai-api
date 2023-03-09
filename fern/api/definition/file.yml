@@ -13,7 +13,7 @@ service:
       docs: Returns a list of files that belong to the user's organization.
       response: ListFilesResponse
 
-    create:
+    upload:
       path: ""
       method: POST
       docs: >
@@ -22,7 +22,7 @@ service:
         organization can be up to 1 GB. Please contact us if you need to
         increase the storage limit.
       request:
-        name: CreateFileRequest
+        name: UploadFileRequest
         body:
           properties:
             file:
